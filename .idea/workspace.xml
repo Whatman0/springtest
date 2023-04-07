@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfb37a60-ca06-463e-9422-bb6cee187574" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/TutorialApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/TutorialApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/user/PUR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/user/PUR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/user/PURController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/user/PURController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/user/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/user/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/user/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,15 +35,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/ryzho/Desktop/springtest"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ryzho/Desktop/springtest&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="TutorialApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springtest2" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="tutorial.TutorialApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -48,11 +61,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680867627116</updated>
-      <workItem from="1680867653503" duration="789000" />
+      <workItem from="1680867653503" duration="7749000" />
     </task>
+    <task id="LOCAL-00001" summary="qQQQ">
+      <created>1680868509615</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680868509616</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="qQQQ" />
+    <option name="LAST_COMMIT_MESSAGE" value="qQQQ" />
   </component>
 </project>

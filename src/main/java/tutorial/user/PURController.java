@@ -17,20 +17,25 @@ public class PURController {
         List<PUR> purs = purRepository.findAll();
         for (PUR pur : purs) {
             if (pur.equals(newPur)) {
-               // purRepository.save(newPur);
-                return Status.QUANTITY_IS_POS_CHANGE;
+
+                System.out.println(" Такая деталь уже есть, пожалуйста измените количество");
+                return Status.ELEMENT_ALREADY_EXISTS;
                 }
         }
         purRepository.save(newPur);
         return Status.SUCCESS;
-
-
-
-
-
-
-
-
+    }
+    @CrossOrigin()
+    @PutMapping("/purs")
+    public Status ChangeElement(@Valid @RequestBody PUR Pur) {
+        List<PUR> purs = purRepository.findAll();
+        for (PUR pur : purs){
+            if (pur.equals(Pur)) {
+                pur.setQuantity(+1);
+                return Status.PLUS_ONE;
+            }
+        }
+        return Status.SUCCESS;
     }
 }
 
