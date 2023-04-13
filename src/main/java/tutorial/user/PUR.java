@@ -1,27 +1,30 @@
 package tutorial.user;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
+
 
 @Entity
 @Table(name = "purs")
 public class PUR {
-    private @Id
-    @GeneratedValue long id;
-    private @NotBlank String name;
-    private Integer quantity;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column(name = "name") private @NotBlank String name;
+    @Column(name = "quantity") private @NotBlank Integer quantity;
+
+    @Column(name = "device") private @NotBlank String device;
 
 
     public PUR() {
     }
 
-    public PUR(@NotBlank String name, Integer quantity) {
+    public PUR(@NotBlank String name, Integer quantity, String device) {
         this.name = name;
         this.quantity = quantity;
+        this.device = device;
     }
 
     public long getId() {
@@ -45,18 +48,27 @@ public class PUR {
     }
 
 
+    public String getDevice() {
+        return device;
+    }
+
+
+    public void setDevice(String device) {
+        this.device = device;
+    }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, quantity);
+        return Objects.hash(id, name, quantity, device);
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "PUR{" +
                 "id=" + id +
-                ", name='" + quantity + '\'' +
+                ", name='" + name + '\'' +
                 ", quantity='" + quantity + '\'' +
+                ", device='" + device + '\'' +
                 '}';
     }
 }

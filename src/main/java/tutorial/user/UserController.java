@@ -43,18 +43,17 @@ public class UserController {
 
         return Status.FAILURE;
     }
-    @CrossOrigin
-    @GetMapping("/users")
-    public Status checkUser(@Valid @RequestBody User user){
-        List<User> users = userRepository.findAll();
-        for (User loggedIn : users) {
-            if (loggedIn.equals(true)) {
-                user.isLoggedIn();
-                return Status.SUCCESS;
-            }
-        }
-        return Status.FAILURE;
-    }
+   // @CrossOrigin
+   // @GetMapping("/users/check")  // Не забудь
+   // public Status checkUser(@Valid @RequestBody User user){
+   //     List<User> users = userRepository.findAll();
+    //    for (User loggedIn : users) {
+     //       if (loggedIn.equals(true)) {
+     //           user.isLoggedIn();
+     //           return Status.SUCCESS;
+     //       }
+   //     }
+   //     return Status.FAILURE;}
     @CrossOrigin()
     @PostMapping("/users/logout")
     public Status logUserOut(@Valid @RequestBody User user) {
