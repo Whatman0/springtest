@@ -43,10 +43,10 @@ public class PURController {
     }
 
     @CrossOrigin()
-    @GetMapping("/purs/getquantity/{id}/{quantity}")
-    public ResponseEntity<PUR> getQuantity(@PathVariable(value = "id") Long id, @PathVariable(value = "quantity") Integer quantity)
+    @GetMapping("/purs/getquantity/{name}")
+    public ResponseEntity<PUR> getQuantity(@PathVariable(value = "name") String name, Integer quantity)
         throws ResourceNotFoundException {
-    PUR quant = purRepository.findById(id)
+    PUR quant = (PUR) purRepository.findByName(name)
             .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this id :: " + quantity));
                 return ResponseEntity.ok().body(quant);
                 }
