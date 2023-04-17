@@ -60,7 +60,7 @@ public class PURController {
         return Status.SUCCESS;
     }
     @CrossOrigin()
-    @GetMapping("/purs/getid{id}")
+    @GetMapping("/purs/getid/{id}")
     public ResponseEntity<PUR> getPurId(@PathVariable(value = "id") Long id)
             throws ResourceNotFoundException {
         PUR pur = purRepository.findById(id)

@@ -62,7 +62,7 @@ public class UserController {
         for (User other : users) {
             if (other.equals(user)) {
                 user.setLoggedIn(false);
-                userRepository.save(user);
+                //userRepository.save(user);
                 return Status.SUCCESS;
             }
         }
