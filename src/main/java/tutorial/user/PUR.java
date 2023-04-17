@@ -10,18 +10,16 @@ import java.util.Objects;
 @Entity
 @Table(name = "purs")
 public class PUR {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column(name = "name") private @NotBlank String name;
-    @Column(name = "quantity") private @NotBlank Integer quantity;
-
-    @Column(name = "device") private @NotBlank String device;
+    private @Id @GeneratedValue long id;
+    private @NotBlank String name;
+    private @NotBlank Integer quantity;
+    private @NotBlank String device;
 
 
     public PUR() {
     }
 
-    public PUR(@NotBlank String name, Integer quantity, String device) {
+    public PUR(@NotBlank String name, @NotBlank Integer quantity, @NotBlank String device) {
         this.name = name;
         this.quantity = quantity;
         this.device = device;
@@ -55,6 +53,14 @@ public class PUR {
 
     public void setDevice(String device) {
         this.device = device;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PUR)) return false;
+        PUR pur = (PUR) o;
+        return Objects.equals(name, pur.name) ;
     }
 
     @Override
