@@ -68,6 +68,19 @@ public class PURController {
         return ResponseEntity.ok().body(pur);
     }
     @CrossOrigin()
+    @GetMapping("/purs")
+    public List<PUR> getPur(){
+        return purRepository.findAll();
+    }
+    @CrossOrigin()
+    @GetMapping("/purs/{id}")
+    public ResponseEntity<PUR> getIds(@PathVariable(value = "id") Long id)
+            throws ResourceNotFoundException {
+        PUR pur = purRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this id :: " + id));
+        return ResponseEntity.ok().body(pur);
+    }
+    @CrossOrigin()
     @GetMapping("/purs/getname/{id}/{name}")
     public ResponseEntity<PUR> getPurName(@PathVariable(value = "id") Long id, @PathVariable(value = "name") String name)
             throws ResourceNotFoundException {
