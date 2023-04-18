@@ -10,7 +10,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "purs")
 public class PUR {
-    private @Id @GeneratedValue long id;
+    private @Id @GeneratedValue Long id;
     private @NotBlank String name;
     private @NotBlank Integer quantity;
     private @NotBlank String device;
@@ -25,7 +25,7 @@ public class PUR {
         this.device = device;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

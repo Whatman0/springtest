@@ -51,20 +51,21 @@ public class PURController {
                 return ResponseEntity.ok().body(quant);
                 }
     @CrossOrigin()
-    @DeleteMapping("/purs/delete/{id}")
-    public Status deletePurs(@PathVariable(value = "id") Long id)
+    @DeleteMapping("/purs/delete/{name}")
+    public Status deletePurs(@PathVariable(value = "name") String name)
             throws ResourceNotFoundException {
-        PUR pur = purRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this id :: " + id));
+        PUR pur = (PUR) purRepository.findByName(name)
+                .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this id :: " + name));
         purRepository.delete(pur);
         return Status.SUCCESS;
     }
     @CrossOrigin()
-    @GetMapping("/purs/getid/{id}")
-    public ResponseEntity<PUR> getPurId(@PathVariable(value = "id") Long id)
+    @GetMapping("/purs/getid/{name}")
+    public ResponseEntity<PUR> getPurId(@PathVariable(value = "name") String name, @RequestParam("id") Long id)
             throws ResourceNotFoundException {
-        PUR pur = purRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this id :: " + id));
+        PUR pur = (PUR) purRepository.findByName(name)
+                .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this name :: " + name));
+        pur.getId();
         return ResponseEntity.ok().body(pur);
     }
     @CrossOrigin()

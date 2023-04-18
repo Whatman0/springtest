@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfb37a60-ca06-463e-9422-bb6cee187574" name="Changes" comment="Pur4">
+    <list default="true" id="bfb37a60-ca06-463e-9422-bb6cee187574" name="Changes" comment="findbyname">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/user/PUR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/user/PUR.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/user/PURController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/user/PURController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/user/PURRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/user/PURRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +76,7 @@
       <workItem from="1680867653503" duration="7749000" />
       <workItem from="1680887792034" duration="2906000" />
       <workItem from="1681374264597" duration="8231000" />
-      <workItem from="1681717327565" duration="12700000" />
+      <workItem from="1681717327565" duration="15669000" />
     </task>
     <task id="LOCAL-00001" summary="qQQQ">
       <created>1680868509615</created>
@@ -113,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681732692754</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="findbyname">
+      <created>1681734884789</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681734884789</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +143,7 @@
     <MESSAGE value="Проверка логгедин и пур2" />
     <MESSAGE value="Проверка логгедин и пур3" />
     <MESSAGE value="Pur4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pur4" />
+    <MESSAGE value="findbyname" />
+    <option name="LAST_COMMIT_MESSAGE" value="findbyname" />
   </component>
 </project>
