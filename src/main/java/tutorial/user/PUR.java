@@ -9,6 +9,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "purs")
+
 public class PUR {
     private @Id @GeneratedValue Long id;
     private @NotBlank String name;
@@ -55,6 +56,7 @@ public class PUR {
         this.device = device;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,4 +79,5 @@ public class PUR {
                 ", device='" + device + '\'' +
                 '}';
     }
+
 }
