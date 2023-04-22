@@ -15,15 +15,17 @@ public class PUR {
     private @NotBlank String name;
     private @NotBlank Integer quantity;
     private @NotBlank String device;
+    private @NotBlank String dscrpt;
 
 
     public PUR() {
     }
 
-    public PUR(@NotBlank String name, @NotBlank Integer quantity, @NotBlank String device) {
+    public PUR(@NotBlank String name, @NotBlank Integer quantity, @NotBlank String device, @NotBlank String dscrpt) {
         this.name = name;
         this.quantity = quantity;
         this.device = device;
+        this.dscrpt = dscrpt;
     }
 
     public Long getId() {
@@ -56,6 +58,12 @@ public class PUR {
         this.device = device;
     }
 
+    public String getDscrpt(){
+        return dscrpt;
+    }
+    public void setDscrpt() {
+        this.dscrpt = dscrpt;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -67,7 +75,7 @@ public class PUR {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, quantity, device);
+        return Objects.hash(id, name, quantity, device, dscrpt);
     }
 
     @Override
@@ -77,6 +85,7 @@ public class PUR {
                 ", name='" + name + '\'' +
                 ", quantity='" + quantity + '\'' +
                 ", device='" + device + '\'' +
+                ", dsrpt='" + dscrpt + '\'' +
                 '}';
     }
 

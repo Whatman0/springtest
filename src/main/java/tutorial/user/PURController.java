@@ -1,8 +1,6 @@
 package tutorial.user;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +29,10 @@ public class PURController {
     }
 
     @CrossOrigin()
-    @PatchMapping("/purs/change/{id}/{quantity}")
-    public ResponseEntity<PUR> ChangeElement(@PathVariable Long id, @PathVariable Integer quantity) {
+    @PatchMapping("/purs/change/{device}/{name}/{quantity}")
+    public ResponseEntity<PUR> ChangeElement(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable Integer quantity) {
         try {
-            PUR pur = purRepository.findById(id).get();
+            PUR pur = (PUR) purRepository.patchByDeviceName(device, name);
             pur.setQuantity(quantity);
             return new ResponseEntity<PUR>(purRepository.save(pur), HttpStatus.OK);
         } catch (Exception e) {
@@ -43,12 +41,9 @@ public class PURController {
     }
 
     @CrossOrigin()
-    @GetMapping("/purs/getquantity/{name}")
-    public Integer getQuantity(@PathVariable(value = "name") String name, Integer quantity)
-        throws ResourceNotFoundException {
-    PUR pur = (PUR) purRepository.findByName(name)
-            .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this id :: " + quantity));
-                return pur.getQuantity();
+    @GetMapping("/purs/getquantity/{device}")
+    public ResponseEntity<ArrayList<String>> getQuantity(@PathVariable(value = "device") String device){
+        return ResponseEntity.ok(purRepository.findAllQuantitysByDevice(device));
                 }
     @CrossOrigin()
     @DeleteMapping("/purs/delete/{name}")
@@ -57,6 +52,12 @@ public class PURController {
         PUR pur = (PUR) purRepository.findByName(name)
                 .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this id :: " + name));
         purRepository.delete(pur);
+        return Status.SUCCESS;
+    }
+    @CrossOrigin()
+    @DeleteMapping("/purs/deleteall")
+    public Status deleteAllPurs() {
+        purRepository.deleteAll();
         return Status.SUCCESS;
     }
 
@@ -72,11 +73,11 @@ public class PURController {
     }
 
     @CrossOrigin()
-    @GetMapping("/purs/getdevice/{device}")
-    public ResponseEntity<PUR> getDevice(@PathVariable(value = "device") String device)
+    @GetMapping("/purs/getdevice/{name}")
+    public ResponseEntity<PUR> getDevice(@PathVariable(value = "name") String name)
             throws ResourceNotFoundException {
-        PUR pur = (PUR) purRepository.findByDevice(device)
-                .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this name :: " + device));
+        PUR pur = (PUR) purRepository.findByName(name)
+                .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this name :: " + name));
         return ResponseEntity.ok().body(pur);
     }
 
@@ -94,10 +95,13 @@ public class PURController {
         return ResponseEntity.ok().body(pur);
     }
     @CrossOrigin()
-    @GetMapping("/purs/getname/{id}")
-    public String getPurName(@PathVariable(value = "id") Long id)
-            throws ResourceNotFoundException {
-        PUR pur = purRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this id :: " + id));
-        return pur.getName();
-    }}
+    @GetMapping("/purs/getname/{device}")
+    public ResponseEntity<ArrayList<String>> getPurName(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(purRepository.findAllNamesByDevice(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/purs/getdscrpt/{device}")
+    public ResponseEntity<ArrayList<String>> getDscrpt(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(purRepository.findAllDscrptByDevice(device));
+    }
+}
