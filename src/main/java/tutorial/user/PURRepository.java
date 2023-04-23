@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -27,8 +26,14 @@ public interface PURRepository extends JpaRepository<PUR, Long> {
 
     @Query(value = "SELECT p.dscrpt FROM purs p where p.device= :device", nativeQuery = true)
     ArrayList<String> findAllDscrptByDevice(@Param("device") String device);
-    @Modifying
+
     @Transactional
-    @Query(value = "SELECT p.quantity FROM purs p where p.device= :device and p.name :name", nativeQuery = true)
-    PUR patchByDeviceName(@Param("device") String device, @Param("name") String name);
+    @Modifying
+    @Query(value = "UPDATE purs p SET p.quantity= :quantity WHERE p.device= :device AND p.name= :name", nativeQuery = true)
+    void patchByDeviceName(@Param("device") String device, @Param("name") String name, @Param("quantity") Integer quantity);
+
+   /* @Transactional
+    @Modifying*/
+    @Query(value = "SELECT * FROM purs p WHERE p.device= :device AND p.name= :name", nativeQuery = true)
+    PUR findAllByDeviceAndName(@Param("device") String device, @Param("name") String name);
 }

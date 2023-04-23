@@ -36,24 +36,13 @@ public class UserController {
         for (User other : users) {
             if (other.equals(user)) {
                 user.setLoggedIn(true);
-               // userRepository.save(user);
                 return Status.SUCCESS;
             }
         }
 
         return Status.FAILURE;
     }
-   // @CrossOrigin
-   // @GetMapping("/users/check")  // Не забудь
-   // public Status checkUser(@Valid @RequestBody User user){
-   //     List<User> users = userRepository.findAll();
-    //    for (User loggedIn : users) {
-     //       if (loggedIn.equals(true)) {
-     //           user.isLoggedIn();
-     //           return Status.SUCCESS;
-     //       }
-   //     }
-   //     return Status.FAILURE;}
+
     @CrossOrigin()
     @PostMapping("/users/logout")
     public Status logUserOut(@Valid @RequestBody User user) {
@@ -62,7 +51,6 @@ public class UserController {
         for (User other : users) {
             if (other.equals(user)) {
                 user.setLoggedIn(false);
-                //userRepository.save(user);
                 return Status.SUCCESS;
             }
         }

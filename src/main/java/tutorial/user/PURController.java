@@ -4,7 +4,6 @@ import java.util.*;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,15 +29,15 @@ public class PURController {
 
     @CrossOrigin()
     @PatchMapping("/purs/change/{device}/{name}/{quantity}")
-    public ResponseEntity<PUR> ChangeElement(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable Integer quantity) {
-        try {
-            PUR pur = (PUR) purRepository.patchByDeviceName(device, name);
-            pur.setQuantity(quantity);
-            return new ResponseEntity<PUR>(purRepository.save(pur), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    public void ChangeElement(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable Integer quantity) {
+       // try {
+            purRepository.patchByDeviceName(device, name, quantity);
+            //pur.setQuantity(quantity);
+           // return new ResponseEntity<>(purRepository.save(pur), HttpStatus.OK);
+         //catch (Exception e) {
+
         }
-    }
+
 
     @CrossOrigin()
     @GetMapping("/purs/getquantity/{device}")
@@ -46,11 +45,9 @@ public class PURController {
         return ResponseEntity.ok(purRepository.findAllQuantitysByDevice(device));
                 }
     @CrossOrigin()
-    @DeleteMapping("/purs/delete/{name}")
-    public Status deletePurs(@PathVariable(value = "name") String name)
-            throws ResourceNotFoundException {
-        PUR pur = (PUR) purRepository.findByName(name)
-                .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this id :: " + name));
+    @DeleteMapping("/purs/delete/{device}/{name}")
+    public Status deletePurs(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name){
+        PUR pur = purRepository.findAllByDeviceAndName(device, name);
         purRepository.delete(pur);
         return Status.SUCCESS;
     }
