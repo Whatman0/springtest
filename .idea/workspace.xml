@@ -9,22 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfb37a60-ca06-463e-9422-bb6cee187574" name="Changes" comment="good123">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="bfb37a60-ca06-463e-9422-bb6cee187574" name="Changes" comment="new">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/springtest2_war_exploded/WEB-INF/classes/tutorial/user/PUR.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/springtest2_war_exploded/WEB-INF/classes/tutorial/user/PUR.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/springtest2_war_exploded/WEB-INF/classes/tutorial/user/PURController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/springtest2_war_exploded/WEB-INF/classes/tutorial/user/PURController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/springtest2_war_exploded/WEB-INF/classes/tutorial/user/PURRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/springtest2_war_exploded/WEB-INF/classes/tutorial/user/PURRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/springtest2_war_exploded/WEB-INF/classes/tutorial/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/springtest2_war_exploded/WEB-INF/classes/tutorial/user/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/user/PUR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/user/PUR.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/user/PURController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/user/PURController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/user/PURRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/user/PURRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/user/getPurId1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tutorial/user/PUR.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tutorial/user/PUR.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tutorial/user/PURController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tutorial/user/PURController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tutorial/user/PURRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tutorial/user/PURRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tutorial/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tutorial/user/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tutorial/user/getPurId1.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,25 +50,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/Desktop/Projects/springtest2",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "ssh.settings",
-    "spring.configuration.checksum": "bf31fa4f3f5eed4a9ddf4bd69717e37c"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Desktop/Projects/springtest2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ssh.settings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;bf31fa4f3f5eed4a9ddf4bd69717e37c&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Spring Boot.TutorialApplication">
     <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
@@ -213,7 +203,9 @@
       <workItem from="1682054978257" duration="9606000" />
       <workItem from="1682143014992" duration="1292000" />
       <workItem from="1682162074723" duration="4581000" />
-      <workItem from="1682233308283" duration="8847000" />
+      <workItem from="1682233308283" duration="9096000" />
+      <workItem from="1682339390914" duration="1376000" />
+      <workItem from="1682487844813" duration="1423000" />
     </task>
     <task id="LOCAL-00001" summary="qQQQ">
       <created>1680868509615</created>
@@ -278,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682143840975</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new">
+      <created>1682246654593</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682246654593</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +304,8 @@
     <MESSAGE value="reqparam" />
     <MESSAGE value="good" />
     <MESSAGE value="good123" />
-    <option name="LAST_COMMIT_MESSAGE" value="good123" />
+    <MESSAGE value="new" />
+    <option name="LAST_COMMIT_MESSAGE" value="new" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
