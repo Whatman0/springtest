@@ -30,12 +30,7 @@ public class LEVERController {
     @CrossOrigin()
     @PatchMapping("/levers/change/{device}/{name}/{quantity}")
     public void ChangeElement(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable Integer quantity) {
-        // try {
         leverRepository.patchByDeviceName(device, name, quantity);
-        //lever.setQuantity(quantity);
-        // return new ResponseEntity<>(purRepository.save(lever), HttpStatus.OK);
-        //catch (Exception e) {
-
     }
 
 
@@ -100,5 +95,10 @@ public class LEVERController {
     @GetMapping("/levers/getdscrpt/{device}")
     public ResponseEntity<ArrayList<String>> getDscrpt(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(leverRepository.findAllDscrptByDevice(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/levers/getinst/{device}")
+    public ResponseEntity<ArrayList<String>> getInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(leverRepository.findAllInstByDevice(device));
     }
 }

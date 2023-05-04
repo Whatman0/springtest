@@ -10,13 +10,16 @@ public class MET {
     private @NotBlank Integer quantity;
     private @NotBlank String device;
     private @NotBlank String dscrpt;
+    private @NotBlank Boolean inst;
+
     public MET() {
     }
-    public MET(@NotBlank String name, @NotBlank Integer quantity, @NotBlank String device, @NotBlank String dscrpt) {
+    public MET(@NotBlank String name, @NotBlank Integer quantity, @NotBlank String device, @NotBlank String dscrpt, @NotBlank Boolean inst) {
         this.name = name;
         this.quantity = quantity;
         this.device = device;
         this.dscrpt = dscrpt;
+        this.inst = inst;
     }
     public Long getId() {
         return id;
@@ -42,8 +45,14 @@ public class MET {
     public String getDscrpt(){
         return dscrpt;
     }
-    public void setDscrpt() {
+    public void setDscrpt(String dscrpt) {
         this.dscrpt = dscrpt;
+    }
+    public Boolean getInst() {
+        return inst;
+    }
+    public void setInst(Boolean inst) {
+        this.inst = inst;
     }
     @Override
     public boolean equals(Object o) {

@@ -36,4 +36,6 @@ public interface METRepository extends JpaRepository<MET, Long> {
      @Modifying*/
     @Query(value = "SELECT * FROM mets p WHERE p.device= :device AND p.name= :name", nativeQuery = true)
     MET findAllByDeviceAndName(@Param("device") String device, @Param("name") String name);
+    @Query(value = "SELECT p.inst FROM mets p WHERE p.device= :device", nativeQuery = true)
+    ArrayList<String> findAllInstByDevice(@Param("device") String device);
 }

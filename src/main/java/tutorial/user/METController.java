@@ -101,4 +101,9 @@ public class METController {
     public ResponseEntity<ArrayList<String>> getDscrpt(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(metRepository.findAllDscrptByDevice(device));
     }
+    @CrossOrigin()
+    @GetMapping("/mets/getinst/{device}")
+    public ResponseEntity<ArrayList<String>> getInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(metRepository.findAllInstByDevice(device));
+    }
 }

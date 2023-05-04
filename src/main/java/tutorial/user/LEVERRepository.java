@@ -34,4 +34,6 @@ public interface LEVERRepository extends JpaRepository<LEVER, Long> {
 
     @Query(value = "SELECT * FROM levers p WHERE p.device= :device AND p.name= :name", nativeQuery = true)
     LEVER findAllByDeviceAndName(@Param("device") String device, @Param("name") String name);
+    @Query(value = "SELECT p.inst FROM levers p WHERE p.device= :device", nativeQuery = true)
+    ArrayList<String> findAllInstByDevice(@Param("device") String device);
 }

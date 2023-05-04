@@ -36,4 +36,6 @@ public interface OVERRepository extends JpaRepository<OVER, Long> {
      @Modifying*/
     @Query(value = "SELECT * FROM overs p WHERE p.device= :device AND p.name= :name", nativeQuery = true)
     OVER findAllByDeviceAndName(@Param("device") String device, @Param("name") String name);
+    @Query(value = "SELECT p.inst FROM overs p WHERE p.device= :device", nativeQuery = true)
+    ArrayList<String> findAllInstByDevice(@Param("device") String device);
 }

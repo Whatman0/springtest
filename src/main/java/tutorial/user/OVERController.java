@@ -101,4 +101,9 @@ public class OVERController {
     public ResponseEntity<ArrayList<String>> getDscrpt(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(overRepository.findAllDscrptByDevice(device));
     }
+    @CrossOrigin()
+    @GetMapping("/overs/getinst/{device}")
+    public ResponseEntity<ArrayList<String>> getInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(overRepository.findAllInstByDevice(device));
+    }
 }

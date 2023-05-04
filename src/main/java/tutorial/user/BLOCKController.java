@@ -101,4 +101,9 @@ public class BLOCKController {
     public ResponseEntity<ArrayList<String>> getDscrpt(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(blockRepository.findAllDscrptByDevice(device));
     }
+    @CrossOrigin()
+    @GetMapping("/blocks/getinst/{device}")
+    public ResponseEntity<ArrayList<String>> getInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(blockRepository.findAllInstByDevice(device));
+    }
 }

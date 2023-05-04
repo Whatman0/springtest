@@ -36,4 +36,6 @@ public interface BLOCKRepository extends JpaRepository<BLOCK, Long> {
      @Modifying*/
     @Query(value = "SELECT * FROM blocks p WHERE p.device= :device AND p.name= :name", nativeQuery = true)
     BLOCK findAllByDeviceAndName(@Param("device") String device, @Param("name") String name);
+    @Query(value = "SELECT p.inst FROM blcoks p WHERE p.device= :device", nativeQuery = true)
+    ArrayList<String> findAllInstByDevice(@Param("device") String device);
 }

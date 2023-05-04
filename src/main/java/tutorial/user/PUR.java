@@ -10,13 +10,15 @@ public class PUR {
     private @NotBlank Integer quantity;
     private @NotBlank String device;
     private @NotBlank String dscrpt;
+    private @NotBlank Boolean inst;
     public PUR() {
     }
-    public PUR(@NotBlank String name, @NotBlank Integer quantity, @NotBlank String device, @NotBlank String dscrpt) {
+    public PUR(@NotBlank String name, @NotBlank Integer quantity, @NotBlank String device, @NotBlank String dscrpt, @NotBlank Boolean inst) {
         this.name = name;
         this.quantity = quantity;
         this.device = device;
         this.dscrpt = dscrpt;
+        this.inst = inst;
     }
     public Long getId() {
         return id;
@@ -42,8 +44,14 @@ public class PUR {
     public String getDscrpt(){
         return dscrpt;
     }
-    public void setDscrpt() {
+    public void setDscrpt(String dscrpt) {
         this.dscrpt = dscrpt;
+    }
+    public Boolean getInst() {
+        return inst;
+    }
+    public void setInst(Boolean inst) {
+        this.inst = inst;
     }
     @Override
     public boolean equals(Object o) {
@@ -55,7 +63,7 @@ public class PUR {
     }
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, quantity, device, dscrpt);
+        return Objects.hash(id, name, quantity, device, dscrpt, inst);
     }
     @Override
     public String toString() {
@@ -65,6 +73,7 @@ public class PUR {
                 ", quantity='" + quantity + '\'' +
                 ", device='" + device + '\'' +
                 ", dsrpt='" + dscrpt + '\'' +
+                ", inst='" + inst + '\'' +
                 '}';
     }
 }

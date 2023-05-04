@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -27,6 +28,8 @@ public interface PURRepository extends JpaRepository<PUR, Long> {
     @Query(value = "SELECT p.dscrpt FROM purs p where p.device= :device", nativeQuery = true)
     ArrayList<String> findAllDscrptByDevice(@Param("device") String device);
 
+    @Query(value = "SELECT p.inst FROM purs p WHERE p.device= :device", nativeQuery = true)
+    ArrayList<String> findAllInstByDevice(@Param("device") String device);
     @Transactional
     @Modifying
     @Query(value = "UPDATE purs p SET p.quantity= :quantity WHERE p.device= :device AND p.name= :name", nativeQuery = true)

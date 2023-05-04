@@ -101,4 +101,9 @@ public class ODOController {
     public ResponseEntity<ArrayList<String>> getDscrpt(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(odoRepository.findAllDscrptByDevice(device));
     }
+    @CrossOrigin()
+    @GetMapping("/odos/getinst/{device}")
+    public ResponseEntity<ArrayList<String>> getInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(odoRepository.findAllInstByDevice(device));
+    }
 }

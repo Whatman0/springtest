@@ -36,4 +36,6 @@ public interface ODORepository extends JpaRepository<ODO, Long> {
      @Modifying*/
     @Query(value = "SELECT * FROM odos p WHERE p.device= :device AND p.name= :name", nativeQuery = true)
     ODO findAllByDeviceAndName(@Param("device") String device, @Param("name") String name);
+    @Query(value = "SELECT p.inst FROM odos p WHERE p.device= :device", nativeQuery = true)
+    ArrayList<String> findAllInstByDevice(@Param("device") String device);
 }

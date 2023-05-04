@@ -101,4 +101,9 @@ public class PURController {
     public ResponseEntity<ArrayList<String>> getDscrpt(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(purRepository.findAllDscrptByDevice(device));
     }
+    @CrossOrigin()
+    @GetMapping("/purs/getinst/{device}")
+    public ResponseEntity<ArrayList<String>> getInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(purRepository.findAllInstByDevice(device));
+    }
 }
