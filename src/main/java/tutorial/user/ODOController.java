@@ -111,4 +111,19 @@ public class ODOController {
     public ResponseEntity<List<ODO>> getAllInst() {
         return ResponseEntity.ok(odoRepository.findAllInst());
     }
+    @CrossOrigin()
+    @GetMapping("/odos/getnamebyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getNameByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(odoRepository.findAllNamesByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/odos/getquantitybyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getQuantityByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(odoRepository.findAllQuantitysByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/odos/getdscrptbyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getDscrptByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(odoRepository.findAllDscrptByDeviceAndInst(device));
+    }
 }

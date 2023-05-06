@@ -41,4 +41,14 @@ public interface OVERRepository extends JpaRepository<OVER, Long> {
     ArrayList<String> findAllInstByDevice(@Param("device") String device);
     @Query(value = "SELECT * FROM overs p WHERE p.inst= true", nativeQuery = true)
     List<ODO> findAllInst();
+
+    @Query(value = "SELECT p.name FROM overs p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
+    ArrayList<String> findAllNamesByDeviceAndInst(@Param("device") String device);
+
+    @Query(value = "SELECT p.quantity FROM overs p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
+    ArrayList<String> findAllQuantitysByDeviceAndInst(@Param("device") String device);
+
+    @Query(value = "SELECT p.dscrpt FROM overs p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
+    ArrayList<String> findAllDscrptByDeviceAndInst(@Param("device") String device);
+
 }

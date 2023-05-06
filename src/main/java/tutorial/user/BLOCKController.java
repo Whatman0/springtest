@@ -111,4 +111,19 @@ public class BLOCKController {
     public ResponseEntity<List<ODO>> getAllInst() {
         return ResponseEntity.ok(blockRepository.findAllInst());
     }
+    @CrossOrigin()
+    @GetMapping("/blocks/getnamebyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getNameByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(blockRepository.findAllNamesByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/blocks/getquantitybyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getQuantityByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(blockRepository.findAllQuantitysByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/blocks/getdscrptbyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getDscrptByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(blockRepository.findAllDscrptByDeviceAndInst(device));
+    }
 }

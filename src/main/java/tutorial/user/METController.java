@@ -111,4 +111,19 @@ public class METController {
     public ResponseEntity<List<ODO>> getAllInst() {
         return ResponseEntity.ok(metRepository.findAllInst());
     }
+    @CrossOrigin()
+    @GetMapping("/mets/getnamebyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getNameByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(metRepository.findAllNamesByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/mets/getquantitybyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getQuantityByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(metRepository.findAllQuantitysByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/mets/getdscrptbyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getDscrptByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(metRepository.findAllDscrptByDeviceAndInst(device));
+    }
 }

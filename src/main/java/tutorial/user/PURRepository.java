@@ -36,10 +36,19 @@ public interface PURRepository extends JpaRepository<PUR, Long> {
     @Query(value = "UPDATE purs p SET p.quantity= :quantity WHERE p.device= :device AND p.name= :name", nativeQuery = true)
     void patchByDeviceName(@Param("device") String device, @Param("name") String name, @Param("quantity") Integer quantity);
 
-   /* @Transactional
-    @Modifying*/
     @Query(value = "SELECT * FROM purs p WHERE p.device= :device AND p.name= :name", nativeQuery = true)
     PUR findAllByDeviceAndName(@Param("device") String device, @Param("name") String name);
+
     @Query(value = "SELECT * FROM purs p WHERE p.inst= true", nativeQuery = true)
     List<ODO> findAllInst();
+
+    @Query(value = "SELECT p.name FROM purs p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
+    ArrayList<String> findAllNamesByDeviceAndInst(@Param("device") String device);
+
+    @Query(value = "SELECT p.quantity FROM purs p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
+    ArrayList<String> findAllQuantitysByDeviceAndInst(@Param("device") String device);
+
+    @Query(value = "SELECT p.dscrpt FROM purs p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
+    ArrayList<String> findAllDscrptByDeviceAndInst(@Param("device") String device);
+
 }

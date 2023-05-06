@@ -111,4 +111,19 @@ public class OVERController {
     public ResponseEntity<List<ODO>> getAllInst() {
         return ResponseEntity.ok(overRepository.findAllInst());
     }
+    @CrossOrigin()
+    @GetMapping("/overs/getnamebyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getNameByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(overRepository.findAllNamesByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/overs/getquantitybyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getQuantityByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(overRepository.findAllQuantitysByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/overs/getdscrptbyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getDscrptByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(overRepository.findAllDscrptByDeviceAndInst(device));
+    }
 }

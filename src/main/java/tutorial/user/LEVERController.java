@@ -106,4 +106,19 @@ public class LEVERController {
     public ResponseEntity<List<ODO>> getAllInst() {
         return ResponseEntity.ok(leverRepository.findAllInst());
     }
+    @CrossOrigin()
+    @GetMapping("/levers/getnamebyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getNameByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(leverRepository.findAllNamesByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/levers/getquantitybyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getQuantityByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(leverRepository.findAllQuantitysByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/levers/getdscrptbyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getDscrptByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(leverRepository.findAllDscrptByDeviceAndInst(device));
+    }
 }

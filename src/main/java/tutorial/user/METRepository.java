@@ -41,4 +41,14 @@ public interface METRepository extends JpaRepository<MET, Long> {
     ArrayList<String> findAllInstByDevice(@Param("device") String device);
     @Query(value = "SELECT * FROM mets p WHERE p.inst= true", nativeQuery = true)
     List<ODO> findAllInst();
+
+    @Query(value = "SELECT p.name FROM mets p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
+    ArrayList<String> findAllNamesByDeviceAndInst(@Param("device") String device);
+
+    @Query(value = "SELECT p.quantity FROM mets p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
+    ArrayList<String> findAllQuantitysByDeviceAndInst(@Param("device") String device);
+
+    @Query(value = "SELECT p.dscrpt FROM mets p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
+    ArrayList<String> findAllDscrptByDeviceAndInst(@Param("device") String device);
+
 }

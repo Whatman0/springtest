@@ -107,8 +107,23 @@ public class PURController {
         return ResponseEntity.ok(purRepository.findAllInstByDevice(device));
     }
     @CrossOrigin()
-    @GetMapping("/purs/getallinst/")
+    @GetMapping("/purs/getallinst")
     public ResponseEntity<List<ODO>> getAllInst() {
         return ResponseEntity.ok(purRepository.findAllInst());
+    }
+    @CrossOrigin()
+    @GetMapping("/purs/getnamebyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getNameByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(purRepository.findAllNamesByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/purs/getquantitybyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getQuantityByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(purRepository.findAllQuantitysByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/purs/getdscrptbyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getDscrptByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(purRepository.findAllDscrptByDeviceAndInst(device));
     }
 }
