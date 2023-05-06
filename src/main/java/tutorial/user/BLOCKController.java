@@ -106,4 +106,9 @@ public class BLOCKController {
     public ResponseEntity<ArrayList<String>> getInst(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(blockRepository.findAllInstByDevice(device));
     }
+    @CrossOrigin()
+    @GetMapping("/blocks/getallinst/")
+    public ResponseEntity<List<ODO>> getAllInst() {
+        return ResponseEntity.ok(blockRepository.findAllInst());
+    }
 }

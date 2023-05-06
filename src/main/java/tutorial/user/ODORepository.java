@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -38,4 +39,7 @@ public interface ODORepository extends JpaRepository<ODO, Long> {
     ODO findAllByDeviceAndName(@Param("device") String device, @Param("name") String name);
     @Query(value = "SELECT p.inst FROM odos p WHERE p.device= :device", nativeQuery = true)
     ArrayList<String> findAllInstByDevice(@Param("device") String device);
+    @Query(value = "SELECT * FROM odos p WHERE p.inst= true", nativeQuery = true)
+    List<ODO> findAllInst();
 }
+

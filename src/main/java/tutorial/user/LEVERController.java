@@ -101,4 +101,9 @@ public class LEVERController {
     public ResponseEntity<ArrayList<String>> getInst(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(leverRepository.findAllInstByDevice(device));
     }
+    @CrossOrigin()
+    @GetMapping("/levers/getallinst/")
+    public ResponseEntity<List<ODO>> getAllInst() {
+        return ResponseEntity.ok(leverRepository.findAllInst());
+    }
 }

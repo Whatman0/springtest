@@ -106,4 +106,9 @@ public class ODOController {
     public ResponseEntity<ArrayList<String>> getInst(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(odoRepository.findAllInstByDevice(device));
     }
+    @CrossOrigin()
+    @GetMapping("/odos/getallinst/")
+    public ResponseEntity<List<ODO>> getAllInst() {
+        return ResponseEntity.ok(odoRepository.findAllInst());
+    }
 }

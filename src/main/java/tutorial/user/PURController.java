@@ -106,4 +106,9 @@ public class PURController {
     public ResponseEntity<ArrayList<String>> getInst(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(purRepository.findAllInstByDevice(device));
     }
+    @CrossOrigin()
+    @GetMapping("/purs/getallinst/")
+    public ResponseEntity<List<ODO>> getAllInst() {
+        return ResponseEntity.ok(purRepository.findAllInst());
+    }
 }

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -39,4 +40,6 @@ public interface PURRepository extends JpaRepository<PUR, Long> {
     @Modifying*/
     @Query(value = "SELECT * FROM purs p WHERE p.device= :device AND p.name= :name", nativeQuery = true)
     PUR findAllByDeviceAndName(@Param("device") String device, @Param("name") String name);
+    @Query(value = "SELECT * FROM purs p WHERE p.inst= true", nativeQuery = true)
+    List<ODO> findAllInst();
 }

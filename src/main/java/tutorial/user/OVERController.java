@@ -106,4 +106,9 @@ public class OVERController {
     public ResponseEntity<ArrayList<String>> getInst(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(overRepository.findAllInstByDevice(device));
     }
+    @CrossOrigin()
+    @GetMapping("/overs/getallinst/")
+    public ResponseEntity<List<ODO>> getAllInst() {
+        return ResponseEntity.ok(overRepository.findAllInst());
+    }
 }
