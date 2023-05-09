@@ -121,4 +121,19 @@ public class LEVERController {
     public ResponseEntity<ArrayList<String>> getDscrptByInst(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(leverRepository.findAllDscrptByDeviceAndInst(device));
     }
+    @CrossOrigin()
+    @GetMapping("/levers/getinstbyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getInstByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(leverRepository.findAllInstByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @PatchMapping("/levers/setinsttrue/{device}/{name}/{inst}")
+    public void SetInstTrue(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        leverRepository.patchTrueInstByDeviceName(device, name, inst);
+    }
+    @CrossOrigin()
+    @PatchMapping("/levers/setinstfalse/{device}/{name}/{inst}")
+    public void SetInstFalse(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        leverRepository.patchFalseInstByDeviceName(device, name, inst);
+    }
 }

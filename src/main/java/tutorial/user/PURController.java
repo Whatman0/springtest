@@ -126,4 +126,19 @@ public class PURController {
     public ResponseEntity<ArrayList<String>> getDscrptByInst(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(purRepository.findAllDscrptByDeviceAndInst(device));
     }
+    @CrossOrigin()
+    @GetMapping("/purs/getinstbyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getInstByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(purRepository.findAllInstByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @PatchMapping("/purs/setinsttrue/{device}/{name}/{inst}")
+    public void SetInstTrue(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        purRepository.patchTrueInstByDeviceName(device, name, inst);
+    }
+    @CrossOrigin()
+    @PatchMapping("/purs/setinstfalse/{device}/{name}/{inst}")
+    public void SetInstFalse(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        purRepository.patchFalseInstByDeviceName(device, name, inst);
+    }
 }

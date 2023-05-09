@@ -126,4 +126,19 @@ public class ODOController {
     public ResponseEntity<ArrayList<String>> getDscrptByInst(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(odoRepository.findAllDscrptByDeviceAndInst(device));
     }
+    @CrossOrigin()
+    @GetMapping("/odos/getinstbyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getInstByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(odoRepository.findAllInstByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @PatchMapping("/odos/setinsttrue/{device}/{name}/{inst}")
+    public void SetInstTrue(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        odoRepository.patchTrueInstByDeviceName(device, name, inst);
+    }
+    @CrossOrigin()
+    @PatchMapping("/odos/setinstfalse/{device}/{name}/{inst}")
+    public void SetInstFalse(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        odoRepository.patchFalseInstByDeviceName(device, name, inst);
+    }
 }

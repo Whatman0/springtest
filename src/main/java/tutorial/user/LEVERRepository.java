@@ -1,4 +1,5 @@
 package tutorial.user;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -49,4 +50,17 @@ public interface LEVERRepository extends JpaRepository<LEVER, Long> {
     @Query(value = "SELECT p.dscrpt FROM levers p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
     ArrayList<String> findAllDscrptByDeviceAndInst(@Param("device") String device);
 
+    @Query(value = "SELECT p.inst FROM levers p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
+    ArrayList<String> findAllInstByDeviceAndInst(@Param("device") String device);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE levers p SET p.inst= :inst WHERE p.device= :device AND p.name= :name", nativeQuery = true)
+    void patchTrueInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE levers p SET p.inst= :inst WHERE p.device= :device AND p.name= :name", nativeQuery = true)
+    void patchFalseInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
 }
+

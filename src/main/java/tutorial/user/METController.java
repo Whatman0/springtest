@@ -126,4 +126,19 @@ public class METController {
     public ResponseEntity<ArrayList<String>> getDscrptByInst(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(metRepository.findAllDscrptByDeviceAndInst(device));
     }
+    @CrossOrigin()
+    @GetMapping("/mets/getinstbyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getInstByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(metRepository.findAllInstByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @PatchMapping("/mets/setinsttrue/{device}/{name}/{inst}")
+    public void SetInstTrue(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        metRepository.patchTrueInstByDeviceName(device, name, inst);
+    }
+    @CrossOrigin()
+    @PatchMapping("/mets/setinstfalse/{device}/{name}/{inst}")
+    public void SetInstFalse(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        metRepository.patchFalseInstByDeviceName(device, name, inst);
+    }
 }

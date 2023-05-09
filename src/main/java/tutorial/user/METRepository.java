@@ -51,4 +51,17 @@ public interface METRepository extends JpaRepository<MET, Long> {
     @Query(value = "SELECT p.dscrpt FROM mets p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
     ArrayList<String> findAllDscrptByDeviceAndInst(@Param("device") String device);
 
+    @Query(value = "SELECT p.inst FROM mets p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
+    ArrayList<String> findAllInstByDeviceAndInst(@Param("device") String device);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE mets p SET p.inst= :inst WHERE p.device= :device AND p.name= :name", nativeQuery = true)
+    void patchTrueInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE mets p SET p.inst= :inst WHERE p.device= :device AND p.name= :name", nativeQuery = true)
+    void patchFalseInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
 }
+

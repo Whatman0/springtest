@@ -30,12 +30,7 @@ public class BLOCKController {
     @CrossOrigin()
     @PatchMapping("/blocks/change/{device}/{name}/{quantity}")
     public void ChangeElement(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable Integer quantity) {
-        // try {
         blockRepository.patchByDeviceName(device, name, quantity);
-        //block.setQuantity(quantity);
-        // return new ResponseEntity<>(blockRepository.save(block), HttpStatus.OK);
-        //catch (Exception e) {
-
     }
 
 
@@ -125,5 +120,20 @@ public class BLOCKController {
     @GetMapping("/blocks/getdscrptbyinst/{device}")
     public ResponseEntity<ArrayList<String>> getDscrptByInst(@PathVariable(value = "device") String device) {
         return ResponseEntity.ok(blockRepository.findAllDscrptByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @GetMapping("/blocks/getinstbyinst/{device}")
+    public ResponseEntity<ArrayList<String>> getInstByInst(@PathVariable(value = "device") String device) {
+        return ResponseEntity.ok(blockRepository.findAllInstByDeviceAndInst(device));
+    }
+    @CrossOrigin()
+    @PatchMapping("/blocks/setinsttrue/{device}/{name}/{inst}")
+    public void SetInstTrue(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        blockRepository.patchTrueInstByDeviceName(device, name, inst);
+    }
+    @CrossOrigin()
+    @PatchMapping("/blocks/setinstfalse/{device}/{name}/{inst}")
+    public void SetInstFalse(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        blockRepository.patchFalseInstByDeviceName(device, name, inst);
     }
 }

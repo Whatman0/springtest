@@ -33,11 +33,10 @@ public interface BLOCKRepository extends JpaRepository<BLOCK, Long> {
     @Query(value = "UPDATE blocks p SET p.quantity= :quantity WHERE p.device= :device AND p.name= :name", nativeQuery = true)
     void patchByDeviceName(@Param("device") String device, @Param("name") String name, @Param("quantity") Integer quantity);
 
-    /* @Transactional
-     @Modifying*/
+
     @Query(value = "SELECT * FROM blocks p WHERE p.device= :device AND p.name= :name", nativeQuery = true)
     BLOCK findAllByDeviceAndName(@Param("device") String device, @Param("name") String name);
-    @Query(value = "SELECT p.inst FROM blcoks p WHERE p.device= :device", nativeQuery = true)
+    @Query(value = "SELECT p.inst FROM blocks p WHERE p.device= :device", nativeQuery = true)
     ArrayList<String> findAllInstByDevice(@Param("device") String device);
     @Query(value = "SELECT * FROM blocks p WHERE p.inst= true", nativeQuery = true)
     List<ODO> findAllInst();
@@ -51,4 +50,16 @@ public interface BLOCKRepository extends JpaRepository<BLOCK, Long> {
     @Query(value = "SELECT p.dscrpt FROM blocks p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
     ArrayList<String> findAllDscrptByDeviceAndInst(@Param("device") String device);
 
+    @Query(value = "SELECT p.inst FROM blocks p WHERE p.device= :device AND p.inst=true", nativeQuery = true)
+    ArrayList<String> findAllInstByDeviceAndInst(@Param("device") String device);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE blocks p SET p.inst= :inst WHERE p.device= :device AND p.name= :name", nativeQuery = true)
+    void patchTrueInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE blocks p SET p.inst= :inst WHERE p.device= :device AND p.name= :name", nativeQuery = true)
+    void patchFalseInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
 }
