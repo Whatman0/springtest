@@ -30,7 +30,12 @@ public class LEVERController {
     @CrossOrigin()
     @PatchMapping("/levers/change/{device}/{name}/{quantity}")
     public void ChangeElement(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable Integer quantity) {
+        // try {
         leverRepository.patchByDeviceName(device, name, quantity);
+        //lever.setQuantity(quantity);
+        // return new ResponseEntity<>(leverRepository.save(lever), HttpStatus.OK);
+        //catch (Exception e) {
+
     }
 
 
@@ -58,7 +63,7 @@ public class LEVERController {
     public Map<Long, String> getLeverId(@PathVariable(value = "name") String name)
             throws ResourceNotFoundException {
         LEVER lever = (LEVER) leverRepository.findByName(name)
-                .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this name :: " + name));
+                .orElseThrow(() -> new ResourceNotFoundException("Lever not found for this name :: " + name));
         Map<Long, String> IdDev = new HashMap<>();
         IdDev.put(lever.getId(), lever.getDevice());
         return IdDev;
@@ -69,7 +74,7 @@ public class LEVERController {
     public ResponseEntity<LEVER> getDevice(@PathVariable(value = "name") String name)
             throws ResourceNotFoundException {
         LEVER lever = (LEVER) leverRepository.findByName(name)
-                .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this name :: " + name));
+                .orElseThrow(() -> new ResourceNotFoundException("Lever not found for this name :: " + name));
         return ResponseEntity.ok().body(lever);
     }
 
@@ -83,7 +88,7 @@ public class LEVERController {
     public ResponseEntity<LEVER> get1Lever(@PathVariable(value = "name") String name)
             throws ResourceNotFoundException {
         LEVER lever = (LEVER) leverRepository.findByName(name)
-                .orElseThrow(() -> new ResourceNotFoundException("Pur not found for this id :: " + name));
+                .orElseThrow(() -> new ResourceNotFoundException("Lever not found for this id :: " + name));
         return ResponseEntity.ok().body(lever);
     }
     @CrossOrigin()
@@ -102,7 +107,7 @@ public class LEVERController {
         return ResponseEntity.ok(leverRepository.findAllInstByDevice(device));
     }
     @CrossOrigin()
-    @GetMapping("/levers/getallinst/")
+    @GetMapping("/levers/getallinst")
     public ResponseEntity<List<ODO>> getAllInst() {
         return ResponseEntity.ok(leverRepository.findAllInst());
     }
@@ -127,13 +132,8 @@ public class LEVERController {
         return ResponseEntity.ok(leverRepository.findAllInstByDeviceAndInst(device));
     }
     @CrossOrigin()
-    @PatchMapping("/levers/setinsttrue/{device}/{name}/{inst}")
-    public void SetInstTrue(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
-        leverRepository.patchTrueInstByDeviceName(device, name, inst);
-    }
-    @CrossOrigin()
-    @PatchMapping("/levers/setinstfalse/{device}/{name}/{inst}")
-    public void SetInstFalse(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
-        leverRepository.patchFalseInstByDeviceName(device, name, inst);
+    @PatchMapping("/levers/setinst/{device}/{name}/{inst}")
+    public void SetInst(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        leverRepository.patchInstByDeviceName(device, name, inst);
     }
 }

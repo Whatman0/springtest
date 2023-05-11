@@ -132,13 +132,8 @@ public class OVERController {
         return ResponseEntity.ok(overRepository.findAllInstByDeviceAndInst(device));
     }
     @CrossOrigin()
-    @PatchMapping("/overs/setinsttrue/{device}/{name}/{inst}")
-    public void SetInstTrue(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
-        overRepository.patchTrueInstByDeviceName(device, name, inst);
-    }
-    @CrossOrigin()
-    @PatchMapping("/overs/setinstfalse/{device}/{name}/{inst}")
-    public void SetInstFalse(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
-        overRepository.patchFalseInstByDeviceName(device, name, inst);
+    @PatchMapping("/overs/setinst/{device}/{name}/{inst}")
+    public void SetInst(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        overRepository.patchInstByDeviceName(device, name, inst);
     }
 }

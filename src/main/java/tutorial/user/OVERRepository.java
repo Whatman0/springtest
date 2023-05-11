@@ -57,10 +57,5 @@ public interface OVERRepository extends JpaRepository<OVER, Long> {
     @Transactional
     @Modifying
     @Query(value = "UPDATE overs p SET p.inst= :inst WHERE p.device= :device AND p.name= :name", nativeQuery = true)
-    void patchTrueInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
-
-    @Transactional
-    @Modifying
-    @Query(value = "UPDATE overs p SET p.inst= :inst WHERE p.device= :device AND p.name= :name", nativeQuery = true)
-    void patchFalseInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
+    void patchInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
 }

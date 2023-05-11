@@ -2,7 +2,7 @@
 <project version="4">
   <component name="RemoteTargetsManager">
     <targets>
-      <target name="root@194.58.97.124:22" type="ssh/sftp" uuid="0642d581-7ab7-4b08-a6a7-00e2ac728978">
+      <target name="root@194.58.97.124:22" type="ssh/sftp" uuid="fa443982-273e-4107-bf04-db6e6de0b9a7">
         <config>
           <option name="projectRootOnTarget" value="/root/springtest2" />
           <option name="serverName" value="root@194.58.97.124:22 password" />

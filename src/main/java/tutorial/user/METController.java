@@ -132,13 +132,8 @@ public class METController {
         return ResponseEntity.ok(metRepository.findAllInstByDeviceAndInst(device));
     }
     @CrossOrigin()
-    @PatchMapping("/mets/setinsttrue/{device}/{name}/{inst}")
-    public void SetInstTrue(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
-        metRepository.patchTrueInstByDeviceName(device, name, inst);
-    }
-    @CrossOrigin()
-    @PatchMapping("/mets/setinstfalse/{device}/{name}/{inst}")
-    public void SetInstFalse(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
-        metRepository.patchFalseInstByDeviceName(device, name, inst);
+    @PatchMapping("/mets/setinst/{device}/{name}/{inst}")
+    public void SetInst(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        metRepository.patchInstByDeviceName(device, name, inst);
     }
 }

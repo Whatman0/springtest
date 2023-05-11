@@ -132,13 +132,8 @@ public class ODOController {
         return ResponseEntity.ok(odoRepository.findAllInstByDeviceAndInst(device));
     }
     @CrossOrigin()
-    @PatchMapping("/odos/setinsttrue/{device}/{name}/{inst}")
-    public void SetInstTrue(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
-        odoRepository.patchTrueInstByDeviceName(device, name, inst);
-    }
-    @CrossOrigin()
-    @PatchMapping("/odos/setinstfalse/{device}/{name}/{inst}")
-    public void SetInstFalse(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
-        odoRepository.patchFalseInstByDeviceName(device, name, inst);
+    @PatchMapping("/odos/setinst/{device}/{name}/{inst}")
+    public void SetInst(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        odoRepository.patchInstByDeviceName(device, name, inst);
     }
 }

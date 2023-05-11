@@ -17,7 +17,9 @@ public interface PURRepository extends JpaRepository<PUR, Long> {
 
 
     <T> Optional<T> findByName(String name);
+
     ArrayList<PUR> findAllByDevice(String device);
+
     <T> Optional<T> findByDevice(String device);
 
     @Query(value = "SELECT p.name FROM purs p where p.device= :device", nativeQuery = true)
@@ -31,6 +33,7 @@ public interface PURRepository extends JpaRepository<PUR, Long> {
 
     @Query(value = "SELECT p.inst FROM purs p WHERE p.device= :device", nativeQuery = true)
     ArrayList<String> findAllInstByDevice(@Param("device") String device);
+
     @Transactional
     @Modifying
     @Query(value = "UPDATE purs p SET p.quantity= :quantity WHERE p.device= :device AND p.name= :name", nativeQuery = true)
@@ -57,11 +60,5 @@ public interface PURRepository extends JpaRepository<PUR, Long> {
     @Transactional
     @Modifying
     @Query(value = "UPDATE purs p SET p.inst= :inst WHERE p.device= :device AND p.name= :name", nativeQuery = true)
-    void patchTrueInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
-
-    @Transactional
-    @Modifying
-    @Query(value = "UPDATE purs p SET p.inst= :inst WHERE p.device= :device AND p.name= :name", nativeQuery = true)
-    void patchFalseInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
+    void patchInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
 }
-

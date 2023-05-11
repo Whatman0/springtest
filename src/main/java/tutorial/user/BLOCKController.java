@@ -127,13 +127,8 @@ public class BLOCKController {
         return ResponseEntity.ok(blockRepository.findAllInstByDeviceAndInst(device));
     }
     @CrossOrigin()
-    @PatchMapping("/blocks/setinsttrue/{device}/{name}/{inst}")
-    public void SetInstTrue(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
-        blockRepository.patchTrueInstByDeviceName(device, name, inst);
-    }
-    @CrossOrigin()
-    @PatchMapping("/blocks/setinstfalse/{device}/{name}/{inst}")
-    public void SetInstFalse(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
-        blockRepository.patchFalseInstByDeviceName(device, name, inst);
+    @PatchMapping("/blocks/setinst/{device}/{name}/{inst}")
+    public void SetInst(@PathVariable(value = "device") String device, @PathVariable(value = "name") String name, @PathVariable(value = "inst") Boolean inst) {
+        blockRepository.patchInstByDeviceName(device, name, inst);
     }
 }

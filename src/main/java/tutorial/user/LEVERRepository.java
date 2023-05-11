@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,9 @@ public interface LEVERRepository extends JpaRepository<LEVER, Long> {
 
 
     <T> Optional<T> findByName(String name);
+
     ArrayList<LEVER> findAllByDevice(String device);
+
     <T> Optional<T> findByDevice(String device);
 
     @Query(value = "SELECT p.name FROM levers p where p.device= :device", nativeQuery = true)
@@ -28,16 +31,17 @@ public interface LEVERRepository extends JpaRepository<LEVER, Long> {
     @Query(value = "SELECT p.dscrpt FROM levers p where p.device= :device", nativeQuery = true)
     ArrayList<String> findAllDscrptByDevice(@Param("device") String device);
 
+    @Query(value = "SELECT p.inst FROM levers p WHERE p.device= :device", nativeQuery = true)
+    ArrayList<String> findAllInstByDevice(@Param("device") String device);
+
     @Transactional
     @Modifying
     @Query(value = "UPDATE levers p SET p.quantity= :quantity WHERE p.device= :device AND p.name= :name", nativeQuery = true)
     void patchByDeviceName(@Param("device") String device, @Param("name") String name, @Param("quantity") Integer quantity);
 
-
     @Query(value = "SELECT * FROM levers p WHERE p.device= :device AND p.name= :name", nativeQuery = true)
     LEVER findAllByDeviceAndName(@Param("device") String device, @Param("name") String name);
-    @Query(value = "SELECT p.inst FROM levers p WHERE p.device= :device", nativeQuery = true)
-    ArrayList<String> findAllInstByDevice(@Param("device") String device);
+
     @Query(value = "SELECT * FROM levers p WHERE p.inst= true", nativeQuery = true)
     List<ODO> findAllInst();
 
@@ -56,11 +60,5 @@ public interface LEVERRepository extends JpaRepository<LEVER, Long> {
     @Transactional
     @Modifying
     @Query(value = "UPDATE levers p SET p.inst= :inst WHERE p.device= :device AND p.name= :name", nativeQuery = true)
-    void patchTrueInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
-
-    @Transactional
-    @Modifying
-    @Query(value = "UPDATE levers p SET p.inst= :inst WHERE p.device= :device AND p.name= :name", nativeQuery = true)
-    void patchFalseInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
+    void patchInstByDeviceName(@Param("device") String device, @Param("name") String name, @Param("inst") Boolean inst);
 }
-
